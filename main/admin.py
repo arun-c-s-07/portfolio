@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contact, Project, Skill, TimelineEntry, AIMLArea, LearningItem, Certification, Achievement
+from .models import Contact, Project, Skill, TimelineEntry, AIMLArea, LearningItem, Certification, Achievement, Resume
 
 
 @admin.register(Contact)
@@ -80,3 +80,14 @@ class AchievementAdmin(admin.ModelAdmin):
     list_display  = ('title', 'date', 'order')
     list_editable = ('order',)
     search_fields = ('title',)
+
+
+@admin.register(Resume)
+class ResumeAdmin(admin.ModelAdmin):
+    list_display  = ('__str__', 'is_active', 'uploaded_at')
+    list_editable = ('is_active',)
+
+    def save_model(self, request, obj, form, change):
+        if obj.is_active:
+            Resume.objects.exclude(pk=obj.pk).update(is_active=False)
+        super().save_model(request, obj, form, change)
