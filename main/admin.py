@@ -88,7 +88,11 @@ class ResumeAdmin(admin.ModelAdmin):
     list_editable = ('is_active',)
 
     def save_model(self, request, obj, form, change):
-        # auto-deactivate all others when a new one is marked active
         if obj.is_active:
             Resume.objects.exclude(pk=obj.pk).update(is_active=False)
         super().save_model(request, obj, form, change)
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        # safely handle missing files
+        return qs
