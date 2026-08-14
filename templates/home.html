@@ -1,0 +1,788 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════ -->
+<section id="hero">
+  <!-- Background -->
+  <div class="bg-grid"></div>
+  <div class="bg-blob" style="width:500px;height:500px;background:rgba(59,130,246,0.07);top:-100px;left:-150px;"></div>
+  <div class="bg-blob" style="width:400px;height:400px;background:rgba(139,92,246,0.06);bottom:-80px;right:-100px;animation-delay:3s;"></div>
+
+  <div class="container position-relative">
+    <div class="row align-items-center gy-5">
+
+      <!-- Left -->
+      <div class="col-lg-6">
+        <div class="hero-badge">
+          <i class="bi bi-circle-fill" style="font-size:.55rem;animation:blink 2s ease infinite"></i>
+          Open to opportunities
+        </div>
+
+        <h1 class="hero-name">ARUN C S</h1>
+        <div class="hero-title">BACKEND / FULL-STACK<br>DEVELOPER</div>
+        <div class="hero-title" style="font-size:clamp(1rem,2vw,1.3rem);opacity:.8;margin-top:.25rem">AI/ML Aspirant</div>
+
+        <p class="hero-subtitle-text">
+          Building modern web applications with Python and Django while
+          exploring Artificial Intelligence and Machine Learning.
+        </p>
+
+        <div class="hero-btns d-flex flex-wrap gap-3">
+          <a href="#projects" class="btn-primary-custom">
+            <i class="bi bi-grid-3x3-gap"></i> View My Work
+          </a>
+          {% if resume_url %}
+          <a href="{{ resume_url }}" target="_blank" class="btn-outline-custom">
+            <i class="bi bi-download"></i> Download Resume
+          </a>
+          {% endif %}
+        </div>
+
+        <div class="hero-social">
+          <a href="{{ config.github }}" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="{{ config.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="{{ config.leetcode }}" target="_blank" rel="noopener" aria-label="LeetCode"><i class="bi bi-code-slash"></i></a>
+        </div>
+      </div>
+
+      <!-- Right — Hero Terminal -->
+      <div class="col-lg-6">
+        <div class="terminal-hero">
+          <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">arun@portfolio:~</span>
+          </div>
+          <div class="terminal-body" id="hero-terminal-body" aria-label="Developer terminal showcase">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+
+    <div class="row align-items-center gy-5">
+
+      <!-- Avatar -->
+      <div class="col-lg-4 text-center reveal">
+        <img src="{% static 'images/Mypic.jpeg' %}"
+             alt="Arun C S"
+             style="width:100%;max-width:320px;border-radius:24px;display:block;margin:0 auto;box-shadow:0 20px 60px rgba(59,130,246,0.2);object-fit:cover;aspect-ratio:1;" />
+      </div>
+
+      <!-- Text -->
+      <div class="col-lg-8">
+        <div class="reveal">
+          <div class="section-label">Who I am</div>
+          <h2 class="section-title">About Me</h2>
+        </div>
+
+        <p class="about-desc reveal reveal-delay-1">
+          I am Arun C S, a 4th-year B.Tech Computer Science and Engineering student interested
+          in backend development, full-stack development, Artificial Intelligence and Machine Learning.
+        </p>
+        <p class="about-desc reveal reveal-delay-2">
+          My primary focus is building backend applications and REST APIs using Python and Django.
+          Alongside web development, I am exploring AI/ML and interested in building intelligent
+          applications that combine modern web technologies with intelligent systems.
+        </p>
+
+        <!-- Info cards -->
+        <div class="row g-3 mt-1">
+          <div class="col-6 col-sm-4 reveal reveal-delay-1">
+            <div class="info-card">
+              <div class="info-card-icon"><i class="bi bi-mortarboard"></i></div>
+              <div class="info-card-title">4th Year</div>
+              <div class="info-card-sub">B.Tech CSE</div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 reveal reveal-delay-2">
+            <div class="info-card">
+              <div class="info-card-icon"><i class="bi bi-server"></i></div>
+              <div class="info-card-title">Backend Development</div>
+              <div class="info-card-sub">Primary Focus</div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 reveal reveal-delay-3">
+            <div class="info-card">
+              <div class="info-card-icon"><i class="devicon-django-plain"></i></div>
+              <div class="info-card-title">Python + Django</div>
+              <div class="info-card-sub">Core Stack</div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 reveal reveal-delay-1">
+            <div class="info-card">
+              <div class="info-card-icon"><i class="bi bi-cpu"></i></div>
+              <div class="info-card-title">AI / ML</div>
+              <div class="info-card-sub">Currently Exploring</div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 reveal reveal-delay-2">
+            <div class="info-card">
+              <div class="info-card-icon"><i class="devicon-react-original"></i></div>
+              <div class="info-card-title">Full-Stack</div>
+              <div class="info-card-sub">React + APIs</div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 reveal reveal-delay-3">
+            <div class="info-card">
+              <div class="info-card-icon"><i class="bi bi-briefcase"></i></div>
+              <div class="info-card-title">Open to Opportunities</div>
+              <div class="info-card-sub">Internship / Job</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CURRENTLY LEARNING
+════════════════════════════════════════════════════ -->
+<section id="learning">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center mb-5 reveal">
+        <div class="section-label justify-content-center">Always Growing</div>
+        <h2 class="section-title">Currently Exploring</h2>
+        <p class="section-subtitle mx-auto">
+          Technologies and topics I am actively learning, building with and experimenting on.
+        </p>
+      </div>
+    </div>
+
+    <div class="learning-grid justify-content-center d-flex flex-wrap reveal reveal-delay-1">
+      {% for item in currently_learning %}
+      <span class="learning-tag">
+        <i class="{{ item.icon }}"></i>
+        {{ item.name }}
+        <span class="learning-badge">Learning</span>
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SKILLS
+════════════════════════════════════════════════════ -->
+<section id="skills">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6 reveal">
+        <div class="section-label">What I work with</div>
+        <h2 class="section-title">Tech Stack</h2>
+        <p class="section-subtitle">
+          Tools and technologies I use to build backend systems,
+          full-stack applications and explore AI/ML.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      {% for category, items in skills.items %}
+      <div class="col-12 reveal">
+        <div class="skill-category">
+          <div class="skill-category-title">{{ category }}</div>
+          <div class="skill-grid">
+            {% for skill in items %}
+            <div class="skill-card" role="listitem">
+              <span class="skill-icon">
+                <i class="{{ skill.icon }}" style="color:{{ skill.color }}"></i>
+              </span>
+              <div class="skill-name">{{ skill.name }}</div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     AI / ML
+════════════════════════════════════════════════════ -->
+<section id="aiml">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-8 reveal">
+        <div class="section-label">Exploring New Frontiers</div>
+        <h2 class="section-title">Exploring AI / Machine Learning</h2>
+        <p class="section-subtitle">
+          AI/ML is an area I am actively learning and experimenting with alongside my backend development journey.
+          These are fields I am currently building knowledge in — not claiming expertise.
+        </p>
+      </div>
+    </div>
+
+    <!-- Visual: Interests diagram -->
+    <div class="row mb-5 reveal">
+      <div class="col-12">
+        <div class="glass-card p-4 text-center" style="max-width:480px;margin:0 auto;">
+          <div style="font-family:var(--font-mono);font-size:.85rem;line-height:2.2;color:var(--text-secondary);">
+            <span style="color:#3b82f6;font-weight:700;">Python</span><br>
+            <span style="color:var(--text-muted);">│</span><br>
+            <span style="color:var(--text-muted);">├──</span>
+            <span style="color:#22c55e;font-weight:700;"> Django</span>
+            <span style="color:var(--text-muted);"> ──── </span>
+            <span style="color:#f59e0b;font-weight:700;">REST API</span>
+            <span style="color:var(--text-muted);"> ──── </span>
+            <span style="color:#61dafb;font-weight:700;">React</span><br>
+            <span style="color:var(--text-muted);">│</span><br>
+            <span style="color:var(--text-muted);">└──</span>
+            <span style="color:#a78bfa;font-weight:700;"> AI / ML</span>
+            <span style="color:var(--text-muted);"> ─────────────── </span>
+            <span style="color:#f472b6;font-weight:700;">Intelligent Apps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      {% for area in aiml_areas %}
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:{{ forloop.counter0 }}00ms">
+        <div class="aiml-card">
+          <div class="exploring-badge">Exploring</div>
+          <div class="aiml-icon"><i class="{{ area.icon }}"></i></div>
+          <h5>{{ area.title }}</h5>
+          <p>{{ area.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PROJECTS
+════════════════════════════════════════════════════ -->
+<section id="projects">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-lg-8 reveal">
+        <div class="section-label">What I've Built</div>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Some of the things I've built and experimented with.</p>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-btns reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="backend">Backend</button>
+      <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+      <button class="filter-btn" data-filter="aiml">AI / ML</button>
+      <button class="filter-btn" data-filter="frontend">Frontend</button>
+    </div>
+
+    <div class="row g-4" id="projects-grid">
+      {% for project in projects %}
+      <div class="col-md-6 col-lg-6 project-item reveal" data-category="{{ project.category }}"
+           style="transition-delay:{{ forloop.counter0 }}00ms">
+        <div class="project-card h-100">
+          <div class="project-img-wrap">
+            {% if project.image_url %}
+              <img src="{{ project.image_url }}" alt="{{ project.title }} preview" loading="lazy" />
+            {% else %}
+              <img src="{% static placeholder_image %}" alt="{{ project.title }} preview" loading="lazy" />
+            {% endif %}
+            <span class="project-category-badge">{{ project.category_label }}</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-desc">{{ project.description }}</p>
+            <div class="tech-badges">
+              {% for tech in project.technologies %}
+              <span class="tech-badge">{{ tech }}</span>
+              {% endfor %}
+            </div>
+            <div class="project-links">
+              {% if project.github %}
+              <a href="{{ project.github }}" target="_blank" rel="noopener" class="project-link-btn">
+                <i class="bi bi-github"></i> GitHub
+              </a>
+              {% endif %}
+              {% if project.live %}
+              <a href="{{ project.live }}" target="_blank" rel="noopener" class="project-link-btn">
+                <i class="bi bi-box-arrow-up-right"></i> Live
+              </a>
+              {% endif %}
+              <button class="project-link-btn primary"
+                      onclick="openProjectModal({{ project.id }})"
+                      aria-label="View details for {{ project.title }}">
+                <i class="bi bi-eye"></i> Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CODING PROFILES
+════════════════════════════════════════════════════ -->
+<section id="coding">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-8 reveal">
+        <div class="section-label">Find me online</div>
+        <h2 class="section-title">Developer Profiles</h2>
+        <p class="section-subtitle">Where I code, connect and share my work.</p>
+      </div>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="profile-card">
+          <div class="profile-icon"><i class="bi bi-github" style="color:var(--text-primary)"></i></div>
+          <div class="profile-name">GitHub</div>
+          <div class="profile-desc">Source code, projects and open source contributions.</div>
+          <a href="{{ config.github }}" target="_blank" rel="noopener" class="btn-outline-custom">
+            View Repositories <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="profile-card">
+          <div class="profile-icon"><i class="bi bi-code-slash" style="color:#ffa116"></i></div>
+          <div class="profile-name">LeetCode</div>
+          <div class="profile-desc">Practising data structures, algorithms and problem solving.</div>
+          <a href="{{ config.leetcode }}" target="_blank" rel="noopener" class="btn-outline-custom">
+            View Profile <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="profile-card">
+          <div class="profile-icon"><i class="bi bi-linkedin" style="color:#0a66c2"></i></div>
+          <div class="profile-name">LinkedIn</div>
+          <div class="profile-desc">Professional network, experience and career updates.</div>
+          <a href="{{ config.linkedin }}" target="_blank" rel="noopener" class="btn-outline-custom">
+            Connect <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     JOURNEY TIMELINE
+════════════════════════════════════════════════════ -->
+<section id="journey">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-8 reveal">
+        <div class="section-label">How I got here</div>
+        <h2 class="section-title">My Journey</h2>
+        <p class="section-subtitle">A timeline of my learning and development as a developer.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="timeline">
+          {% for item in timeline %}
+          <div class="timeline-item {% if item.is_current %}current{% endif %}">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">{{ item.year }}</div>
+            <div class="timeline-title">{{ item.title }}</div>
+            <div class="timeline-desc">{{ item.description }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     RESUME
+════════════════════════════════════════════════════ -->
+<section id="resume">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-8 reveal">
+        <div class="section-label">My Background</div>
+        <h2 class="section-title">Resume</h2>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-8 reveal">
+
+        <div class="resume-section">
+          <h4><i class="bi bi-mortarboard me-2"></i>Education</h4>
+          <div class="resume-item">
+            <div class="resume-item-title">B.Tech — Computer Science and Engineering</div>
+            <div class="resume-item-sub">4th Year Undergraduate</div>
+            <div class="resume-item-meta">2023 — Present</div>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h4><i class="bi bi-tools me-2"></i>Skills</h4>
+          <div class="resume-item">
+            <div class="resume-item-title">Backend</div>
+            <div class="resume-item-sub">Python, Django, Django REST Framework, REST APIs</div>
+          </div>
+          <div class="resume-item">
+            <div class="resume-item-title">Frontend</div>
+            <div class="resume-item-sub">HTML, CSS, Bootstrap, JavaScript, React</div>
+          </div>
+          <div class="resume-item">
+            <div class="resume-item-title">Database &amp; Tools</div>
+            <div class="resume-item-sub">PostgreSQL, MySQL, SQLite, Git, GitHub, VS Code</div>
+          </div>
+          <div class="resume-item">
+            <div class="resume-item-title">AI / ML (Learning)</div>
+            <div class="resume-item-sub">Python for AI/ML, NumPy, Pandas, Matplotlib, Machine Learning</div>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h4><i class="bi bi-folder me-2"></i>Projects</h4>
+          {% for project in projects %}
+          <div class="resume-item">
+            <div class="resume-item-title">{{ project.title }}</div>
+            <div class="resume-item-sub">{{ project.description }}</div>
+            <div class="resume-item-meta">{{ project.technologies|join:", " }}</div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="resume-section">
+          <h4><i class="bi bi-award me-2"></i>Achievements &amp; Certifications</h4>
+
+          {% if certifications %}
+          <div class="resume-item-title" style="color:var(--accent);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;">Certifications</div>
+          {% for cert in certifications %}
+          <div class="resume-item">
+            <div class="resume-item-title">
+              {{ cert.title }}
+              {% if cert.credential_url %}
+              <a href="{{ cert.credential_url }}" target="_blank" rel="noopener"
+                 style="font-size:.75rem;color:var(--accent);margin-left:.5rem;">
+                <i class="bi bi-box-arrow-up-right"></i> Verify
+              </a>
+              {% endif %}
+            </div>
+            <div class="resume-item-sub">{{ cert.issuer }}</div>
+            {% if cert.date %}<div class="resume-item-meta">{{ cert.date }}</div>{% endif %}
+          </div>
+          {% endfor %}
+          {% endif %}
+
+          {% if achievements %}
+          <div class="resume-item-title" style="color:var(--accent);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin:1rem 0 .75rem;">Achievements</div>
+          {% for ach in achievements %}
+          <div class="resume-item">
+            <div class="resume-item-title">{{ ach.title }}</div>
+            {% if ach.description %}<div class="resume-item-sub">{{ ach.description }}</div>{% endif %}
+            {% if ach.date %}<div class="resume-item-meta">{{ ach.date }}</div>{% endif %}
+          </div>
+          {% endfor %}
+          {% endif %}
+
+          {% if not certifications and not achievements %}
+          <div class="resume-item">
+            <div class="resume-item-sub" style="color:var(--text-muted);font-style:italic;">
+              No certifications or achievements added yet. Add them from the
+              <a href="/admin" style="color:var(--accent);">Django Admin</a> panel.
+            </div>
+          </div>
+          {% endif %}
+        </div>
+
+      </div>
+
+      <div class="col-lg-4 reveal reveal-delay-2">
+        <div class="glass-card p-4 text-center" style="position:sticky;top:90px;">
+          <div style="font-size:3rem;margin-bottom:1rem;">📄</div>
+          <h5 style="font-weight:700;margin-bottom:.5rem;">Full Resume</h5>
+          <p style="font-size:.875rem;color:var(--text-secondary);margin-bottom:1.5rem;">
+            Download my complete resume with all details.
+          </p>
+          {% if resume_url %}
+          <a href="{{ resume_url }}" target="_blank" class="btn-primary-custom w-100 justify-content-center">
+            <i class="bi bi-download"></i> Download Resume
+          </a>
+          {% else %}
+          <p style="font-size:.8rem;color:var(--text-muted);">
+            Resume not uploaded yet. Upload it from the
+            <a href="/admin" style="color:var(--accent);">Admin panel</a>.
+          </p>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     INTERACTIVE TERMINAL
+════════════════════════════════════════════════════ -->
+<section id="terminal-section">
+  <div class="container">
+    <div class="row mb-5 justify-content-center">
+      <div class="col-lg-8 text-center reveal">
+        <div class="section-label justify-content-center">Developer Terminal</div>
+        <h2 class="section-title">Interactive Terminal</h2>
+        <p class="section-subtitle mx-auto">
+          Type a command to learn more about me. Try <code>help</code> to get started.
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="terminal-interactive" id="terminal-interactive">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">arun@portfolio:~</span>
+        </div>
+        <div class="terminal-body">
+          <div id="terminal-output"></div>
+          <div class="terminal-input-row">
+            <span class="t-prompt">$</span>
+            <input type="text" id="terminal-input" placeholder="type a command..."
+                   autocomplete="off" autocorrect="off" spellcheck="false"
+                   aria-label="Terminal input" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-8 reveal">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title">Let's Build Something</h2>
+        <p class="section-subtitle">
+          Have an opportunity, project idea or just want to connect?
+        </p>
+      </div>
+    </div>
+
+    <!-- Django messages -->
+    {% if messages %}
+    <div class="row mb-4">
+      <div class="col-lg-10">
+        {% for message in messages %}
+          {% if message.tags == 'success' %}
+          <div class="alert-success-custom auto-dismiss" role="alert">
+            <i class="bi bi-check-circle-fill"></i> {{ message }}
+          </div>
+          {% else %}
+          <div class="alert-error-custom auto-dismiss" role="alert">
+            <i class="bi bi-exclamation-circle-fill"></i> {{ message }}
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="row g-5 align-items-start">
+
+      <!-- Left: Contact info -->
+      <div class="col-lg-5">
+        <h4 style="font-weight:700;margin-bottom:.5rem;">Let's Connect</h4>
+        <p style="color:var(--text-secondary);font-size:.9rem;margin-bottom:2rem;">
+          I am currently looking for internship and full-time opportunities.
+          My inbox is always open — I will get back to you as soon as possible.
+        </p>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-value">
+              <a href="mailto:{{ config.email }}" style="color:inherit;">{{ config.email }}</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="bi bi-github"></i></div>
+          <div>
+            <div class="contact-info-label">GitHub</div>
+            <div class="contact-info-value">
+              <a href="{{ config.github }}" target="_blank" rel="noopener" style="color:inherit;">arun-c-s-07</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="bi bi-linkedin"></i></div>
+          <div>
+            <div class="contact-info-label">LinkedIn</div>
+            <div class="contact-info-value">
+              <a href="{{ config.linkedin }}" target="_blank" rel="noopener" style="color:inherit;">Connect on LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="bi bi-code-slash"></i></div>
+          <div>
+            <div class="contact-info-label">LeetCode</div>
+            <div class="contact-info-value">
+              <a href="{{ config.leetcode }}" target="_blank" rel="noopener" style="color:inherit;">View Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact form -->
+      <div class="col-lg-7">
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:2.5rem;position:relative;z-index:10;">
+          <form method="POST" action="/" id="contact-form" novalidate style="position:relative;z-index:10;">
+            {% csrf_token %}
+
+            <div class="mb-4">
+              <label for="{{ contact_form.name.id_for_label }}" class="form-label">
+                Name <span style="color:#f87171">*</span>
+              </label>
+              <input type="text" name="name" id="{{ contact_form.name.id_for_label }}"
+                placeholder="Your Name" autocomplete="name"
+                style="display:block;width:100%;padding:0.75rem 1rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-size:0.9rem;outline:none;position:relative;z-index:10;pointer-events:auto;"
+                value="{{ contact_form.name.value|default:'' }}"
+                onfocus="this.style.borderColor='var(--accent)'"
+                onblur="this.style.borderColor='var(--border)'" />
+              {% if contact_form.name.errors %}
+              <div style="color:#f87171;font-size:.8rem;margin-top:.3rem;">
+                {% for error in contact_form.name.errors %}{{ error }}{% endfor %}
+              </div>
+              {% endif %}
+            </div>
+
+            <div class="mb-4">
+              <label for="{{ contact_form.email.id_for_label }}" class="form-label">
+                Email <span style="color:#f87171">*</span>
+              </label>
+              <input type="email" name="email" id="{{ contact_form.email.id_for_label }}"
+                placeholder="your@email.com" autocomplete="email"
+                style="display:block;width:100%;padding:0.75rem 1rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-size:0.9rem;outline:none;position:relative;z-index:10;pointer-events:auto;"
+                value="{{ contact_form.email.value|default:'' }}"
+                onfocus="this.style.borderColor='var(--accent)'"
+                onblur="this.style.borderColor='var(--border)'" />
+              {% if contact_form.email.errors %}
+              <div style="color:#f87171;font-size:.8rem;margin-top:.3rem;">
+                {% for error in contact_form.email.errors %}{{ error }}{% endfor %}
+              </div>
+              {% endif %}
+            </div>
+
+            <div class="mb-4">
+              <label for="{{ contact_form.message.id_for_label }}" class="form-label">
+                Message <span style="color:#f87171">*</span>
+              </label>
+              <textarea name="message" id="{{ contact_form.message.id_for_label }}"
+                placeholder="Your message..." rows="5"
+                style="display:block;width:100%;padding:0.75rem 1rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-size:0.9rem;outline:none;resize:vertical;position:relative;z-index:10;pointer-events:auto;"
+                onfocus="this.style.borderColor='var(--accent)'"
+                onblur="this.style.borderColor='var(--border)'">{{ contact_form.message.value|default:'' }}</textarea>
+              {% if contact_form.message.errors %}
+              <div style="color:#f87171;font-size:.8rem;margin-top:.3rem;">
+                {% for error in contact_form.message.errors %}{{ error }}{% endfor %}
+              </div>
+              {% endif %}
+            </div>
+
+            <button type="submit" class="btn-primary-custom w-100 justify-content-center" style="position:relative;z-index:10;">
+              <i class="bi bi-send"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<!-- Project modal data -->
+<script>
+const PROJECT_DATA = {
+  {% for project in projects %}
+  {{ project.id }}: {
+    title: "{{ project.title|escapejs }}",
+    category: "{{ project.category_label|escapejs }}",
+    description: "{{ project.description|escapejs }}",
+    longDescription: "{{ project.long_description|escapejs }}",
+    technologies: [{% for t in project.technologies %}"{{ t|escapejs }}"{% if not forloop.last %},{% endif %}{% endfor %}],
+    features: [{% for f in project.features %}"{{ f|escapejs }}"{% if not forloop.last %},{% endif %}{% endfor %}],
+    github: "{{ project.github|escapejs }}",
+    live: "{{ project.live|escapejs }}"
+  }{% if not forloop.last %},{% endif %}
+  {% endfor %}
+};
+
+function openProjectModal(id) {
+  const p = PROJECT_DATA[id];
+  if (!p) return;
+
+  document.getElementById('projectModalLabel').textContent = p.title;
+
+  const featuresHtml = p.features.length
+    ? `<ul class="feature-list">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>`
+    : '';
+
+  const techHtml = p.technologies
+    .map(t => `<span class="tech-badge">${t}</span>`)
+    .join('');
+
+  document.getElementById('projectModalBody').innerHTML = `
+    <div class="mb-1">
+      <span class="exploring-badge" style="background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.25);color:#60a5fa;">
+        ${p.category}
+      </span>
+    </div>
+    <h6 style="font-weight:700;margin-bottom:.5rem;color:var(--text-primary);">Overview</h6>
+    <p style="color:var(--text-secondary);font-size:.9rem;line-height:1.75;">${p.longDescription}</p>
+    ${p.features.length ? `<h6 style="font-weight:700;margin:1.25rem 0 .5rem;color:var(--text-primary);">Key Features</h6>${featuresHtml}` : ''}
+    <h6 style="font-weight:700;margin:1.25rem 0 .75rem;color:var(--text-primary);">Technologies</h6>
+    <div class="tech-badges">${techHtml}</div>
+  `;
+
+  const ghBtn = document.getElementById('modal-github-btn');
+  const liveBtn = document.getElementById('modal-live-btn');
+
+  if (p.github) { ghBtn.href = p.github; ghBtn.style.display = ''; }
+  else { ghBtn.style.display = 'none'; }
+
+  if (p.live) { liveBtn.href = p.live; liveBtn.style.display = ''; }
+  else { liveBtn.style.display = 'none'; }
+
+  new bootstrap.Modal(document.getElementById('projectModal')).show();
+}
+</script>
+{% endblock %}
