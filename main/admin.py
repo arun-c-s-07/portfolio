@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Contact, Project, Skill, TimelineEntry, AIMLArea, LearningItem, Certification, Achievement, Resume
+from django.contrib import messages as django_messages
 
 
 @admin.register(Contact)
@@ -84,15 +85,19 @@ class AchievementAdmin(admin.ModelAdmin):
 
 @admin.register(Resume)
 class ResumeAdmin(admin.ModelAdmin):
-    list_display  = ('__str__', 'is_active', 'uploaded_at')
-    list_editable = ('is_active',)
+    list_display   = ('__str__', 'is_active', 'uploaded_at')
+    list_editable  = ('is_active',)
 
     def save_model(self, request, obj, form, change):
         if obj.is_active:
             Resume.objects.exclude(pk=obj.pk).update(is_active=False)
-        super().save_model(request, obj, form, change)
+        try:
+            super().save_model(request, obj, form, change)
+        except Exception as e:
+            self.message_user(request, f'Error saving file: {e}. Use Cloudinary for persistent storage.', level='error')
 
     def get_queryset(self, request):
-        qs = super().get_queryset(request)
-        # safely handle missing files
-        return qs
+        try:
+            return super().get_queryset(request)
+        except Exception:
+            return Resume.objects.none()
